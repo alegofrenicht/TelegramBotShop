@@ -4,7 +4,7 @@ from telebot import TeleBot, types
 bot = TeleBot('5990596440:AAFgByBK5WzTCxVdrRTzKAm-dsVN_RfhY88')
 emoji = '\U0001F335\U0001F335\U0001F335\n\n'
 commands = ['/start', '/help', '/place', '/my_devices', '/buy', '/rent']
-
+bot.set_webhook()
 from app.commands import start, help, place, my_devices, rent, buy
 
 
