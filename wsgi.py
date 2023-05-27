@@ -5,4 +5,4 @@ webhook_url = 'https://alegofrenicht.github.io/TelegramBotShop/'
 bot.set_webhook(url=webhook_url)
 
 if __name__ == "__main__":
-    bot.infinity_polling()
+    app.run()
