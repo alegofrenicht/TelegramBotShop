@@ -29,3 +29,7 @@ def wrong_input(message):
             rent.rent(message)
         elif user_message == 'buy':
             buy.buy(message)
+
+
+def start_bot():
+    bot.polling()

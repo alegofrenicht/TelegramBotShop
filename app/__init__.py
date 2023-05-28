@@ -12,5 +12,3 @@ db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 
 from app import models, bot, routes
-
-bot.bot.infinity_polling()
