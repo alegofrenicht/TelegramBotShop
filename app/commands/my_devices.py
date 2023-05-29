@@ -30,4 +30,4 @@ def delete(call):
         db.session.delete(device_to_del)
         db.session.add(db_user)
         db.session.commit()
-        bot.send_message(call.message.chat.id, f'{emoji}{device_to_del.device_type}{device_to_del.name} was successfully deleted from list')
+        bot.send_message(call.message.chat.id, f'{emoji}{device_to_del.device_type} {device_to_del.name} was successfully deleted from list')
