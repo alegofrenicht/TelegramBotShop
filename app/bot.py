@@ -1,8 +1,9 @@
+import os
 from telebot import TeleBot, types
 from app import app
 
 
-bot = TeleBot('5990596440:AAFgByBK5WzTCxVdrRTzKAm-dsVN_RfhY88')
+bot = TeleBot(os.environ.get('TOKEN'))
 emoji = '\U0001F335\U0001F335\U0001F335\n\n'
 commands = ['/start', '/help', '/place', '/my_devices', '/buy', '/rent']
 
@@ -29,7 +30,3 @@ def wrong_input(message):
             rent.rent(message)
         elif user_message == 'buy':
             buy.buy(message)
-
-
-def start_bot():
-    bot.polling()
