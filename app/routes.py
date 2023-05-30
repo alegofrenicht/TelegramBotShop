@@ -3,7 +3,7 @@ from app.bot import bot
 from flask import request
 import os
 
-token = os.environ.get('TOKEN')
+token = os.getenv('TOKEN')
 
 
 @app.route('/' + token, methods=['POST'])
@@ -15,7 +15,7 @@ def get_message():
 @app.route('/')
 def web_hook():
     bot.remove_webhook()
-    bot.set_webhook(url='' + token)
+    bot.set_webhook(url='https://final-project-2qwc.onrender.com/' + token)
     return "CONNECTED", 200
 
 
