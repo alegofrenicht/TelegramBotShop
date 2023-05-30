@@ -1,5 +1,5 @@
 from app import app
-from app.bot import bot
+from app.bot import types, bot
 from flask import request
 import os
 
@@ -8,7 +8,7 @@ token = os.getenv('TOKEN')
 
 @app.route('/' + token, methods=['POST'])
 def get_message():
-    bot.process_new_updates([bot.types.Update.de_json(request.stream.read().decode("utf-8"))])
+    bot.process_new_updates([types.Update.de_json(request.stream.read().decode("utf-8"))])
     return "POST", 200
 
 
