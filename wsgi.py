@@ -4,6 +4,6 @@ import os
 
 
 if __name__ == "__main__":
-    bot.infinity_polling()
+    app.run()
 
 
