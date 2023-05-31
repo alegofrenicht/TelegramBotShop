@@ -4,7 +4,7 @@ from app import app
 from flask import request
 
 token = os.getenv('TOKEN')
-bot = TeleBot(os.environ.get(token))
+bot = TeleBot(token)
 emoji = '\U0001F335\U0001F335\U0001F335\n\n'
 commands = ['/start', '/help', '/place', '/my_devices', '/buy', '/rent']
 
