@@ -42,7 +42,7 @@ def get_message():
 @app.route('/')
 def web_hook():
     bot.remove_webhook()
-    bot.set_webhook(url='https://final-project-6cbi.onrender.com/' + token)
+    bot.set_webhook(url='https://final-project-l9ib.onrender.com/' + token)
     return "CONNECTED", 200
 
 
