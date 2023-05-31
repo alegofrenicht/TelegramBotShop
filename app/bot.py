@@ -36,7 +36,7 @@ def wrong_input(message):
 @app.route('/' + token, methods=['POST'])
 def get_message():
     bot.process_new_updates([types.Update.de_json(request.stream.read().decode("utf-8"))])
-    return "From telegram", 200
+    return "POST", 200
 
 
 @app.route('/')
