@@ -1,9 +1,10 @@
 import os
 from telebot import TeleBot, types
 from app import app
+from flask import request
 
-
-bot = TeleBot(os.environ.get('TOKEN'))
+token = os.getenv('TOKEN')
+bot = TeleBot(os.environ.get(token))
 emoji = '\U0001F335\U0001F335\U0001F335\n\n'
 commands = ['/start', '/help', '/place', '/my_devices', '/buy', '/rent']
 
@@ -30,3 +31,21 @@ def wrong_input(message):
             rent.rent(message)
         elif user_message == 'buy':
             buy.buy(message)
+
+
+@app.route('/' + token, methods=['POST'])
+def get_message():
+    bot.process_new_updates([types.Update.de_json(request.stream.read().decode("utf-8"))])
+    return "POST", 200
+
+
+@app.route('/')
+def web_hook():
+    bot.remove_webhook()
+    bot.set_webhook(url='https://final-project-6cbi.onrender.com/' + token)
+    return "CONNECTED", 200
+
+
+@app.route('/health')
+def health():
+    return "ok"
