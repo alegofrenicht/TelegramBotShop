@@ -14,6 +14,7 @@ from app.commands import start, help, place, my_devices, rent, buy
 @bot.message_handler(content_types=['text'])
 def wrong_input(message):
     user = message.chat.id
+
     user_message = message.text.lower().strip()
     all_commands = [command.command for command in bot.get_my_commands()]
     if user_message not in all_commands:
@@ -33,19 +34,19 @@ def wrong_input(message):
             buy.buy(message)
 
 
-@app.route('/' + token, methods=['POST'])
-def get_message():
-    bot.process_new_updates([types.Update.de_json(request.stream.read().decode("utf-8"))])
-    return "POST", 200
-
-
-@app.route('/')
-def web_hook():
-    bot.remove_webhook()
-    bot.set_webhook(url='https://final-project-l9ib.onrender.com/' + token)
-    return "CONNECTED", 200
-
-
-@app.route('/health')
-def health():
-    return "ok"
+# @app.route('/' + token, methods=['POST'])
+# def get_message():
+#     bot.process_new_updates([types.Update.de_json(request.stream.read().decode("utf-8"))])
+#     return "POST", 200
+#
+#
+# @app.route('/')
+# def web_hook():
+#     bot.remove_webhook()
+#     bot.set_webhook(url='https://final-project-l9ib.onrender.com/' + token)
+#     return "CONNECTED", 200
+#
+#
+# @app.route('/health')
+# def health():
+#     return "ok"
