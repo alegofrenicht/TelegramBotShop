@@ -12,5 +12,6 @@ Telegram Bot Shop is a marketplace bot built with Python and the Telegram Bot AP
 ## Requirements
 
 - Python 3.10v
+- Flask
 - pyTelegramBotAPI library
 - PostgreSQL database
