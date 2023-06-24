@@ -2,6 +2,7 @@ from app import app, db, models
 from app.bot import bot, emoji, commands, types
 from app.text_templates import place_text, rent_sell
 
+
 device_type = ''
 device_name = ''
 device_description = ''
@@ -54,7 +55,7 @@ def device_class_func(message):
 
 def device_name_func(message):
     global device_name
-    device_name = message.text.strip().capitalize()
+    device_name = message.text.strip().upper()
     if message.text in commands:
         interrupt_request(message)
         return
@@ -76,7 +77,7 @@ def no_reply(call):
 
 def device_description_func(message):
     global device_description
-    device_description = message.text
+    device_description = message.text.strip().capitalize()
     if message.text in commands:
         interrupt_request(message)
         return
